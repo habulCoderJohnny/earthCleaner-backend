@@ -2,9 +2,13 @@ import { Server } from 'http';
 import app from './app';
 import config from './config';
 import { errorlogger, logger } from './shared/logger';
+import mongoose from 'mongoose';
 
 
 async function bootstrap() {
+  mongoose.connect(config.database_url as string)
+  .then(() => console.log('Database connected successfully ✅'))
+  .catch(err => console.log(`Unable to connect MongoDB ❌ ${err}`));
 
   const server: Server = app.listen(config.port, () => {
     logger.info(`Server running on port ${config.port}`);
