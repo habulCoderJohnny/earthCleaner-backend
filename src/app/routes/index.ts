@@ -23,6 +23,10 @@ const moduleRoutes = [
     path: '/cleaning-service',
     routes: CleaningServiceRoutes,
   },
+   {
+    path: '/booking',
+    routes: CleaningServiceRoutes,
+  },
 ];
 
 moduleRoutes.forEach(route => router.use(route.path, route.routes));
