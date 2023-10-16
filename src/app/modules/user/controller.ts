@@ -1,11 +1,11 @@
 import { RequestHandler } from 'express';
-import catchAsync from '../../../shared/catchAsync';
-import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
-import { UserService } from './service';
-import pick from '../../../shared/pick';
 import { paginationFields } from '../../../constants/pagination';
+import catchAsync from '../../../shared/catchAsync';
+import pick from '../../../shared/pick';
+import sendResponse from '../../../shared/sendResponse';
 import { userSearchAndFilter } from './constant';
+import { UserService } from './service';
 
 const createAdmin: RequestHandler = catchAsync(async (req, res) => {
   const adminData = req.body;

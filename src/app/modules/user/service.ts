@@ -1,11 +1,11 @@
 import { SortOrder } from 'mongoose';
+import { ENUM_USER_ROLE } from '../../../enums/user';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { AuthUtils } from '../auth/utils';
+import { userSearchableFields } from './constant';
 import { IUser, IUserSearch } from './interface';
 import { User } from './model';
-import { userSearchableFields } from './constant';
-import { ENUM_USER_ROLE } from '../../../enums/user';
 
 const createAdmin = async (payload: IUser) => {
   // Hash Password

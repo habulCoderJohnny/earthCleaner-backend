@@ -5,7 +5,7 @@ import { categoriesSearchableFields } from './constant';
 import { ICategory, IcategoriesSearch } from './interface';
 import { Category } from './model';
 
-const createAdmin = async (payload: ICategory) => {
+const createCategory = async (payload: ICategory) => {
   const category = await Category.create(payload);
   return category;
 };
@@ -69,7 +69,7 @@ const deleteCategory = async (id: string) => {
 };
 
 export const categoryService = {
-  createAdmin,
+  createCategory,
   getCategories,
   getCategory,
   updateCategory,

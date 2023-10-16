@@ -1,9 +1,9 @@
 import express from 'express';
-import { UserValidations } from './validation';
+import { ENUM_USER_ROLE } from '../../../enums/user';
+import auth from '../../middlewares/auth';
 import validateRequest from '../../middlewares/validateRequest';
 import { UserController } from './controller';
-import auth from '../../middlewares/auth';
-import { ENUM_USER_ROLE } from '../../../enums/user';
+import { UserValidations } from './validation';
 
 const router = express.Router();
 

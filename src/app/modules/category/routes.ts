@@ -11,7 +11,7 @@ router.post(
   '/',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   validateRequest(CategoryValidation.createCategory),
-  CategoryController.createAdmin
+  CategoryController.createCategory
 );
 
 router.get(
