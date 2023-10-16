@@ -1,11 +1,12 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { ISignInPayload, IUser } from './interface';
+import { ISignInPayload} from './interface';
 import { User } from './model';
 import { AuthUtils } from './utils';
 import { jwtHelpers } from '../../../helpers/jwtHelpers';
 import config from '../../../config';
 import { Secret } from 'jsonwebtoken';
+import { IUser } from '../user/interface';
 
 const signUp = async (payload: IUser) => {
   // Hash Password
