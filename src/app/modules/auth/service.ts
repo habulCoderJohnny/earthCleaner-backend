@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import { ISignInPayload} from './interface';
-import { User } from './model';
+import { User } from '../user/model';
 import { AuthUtils } from './utils';
 import { jwtHelpers } from '../../../helpers/jwtHelpers';
 import config from '../../../config';

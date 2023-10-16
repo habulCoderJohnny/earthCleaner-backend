@@ -7,14 +7,14 @@ import sendResponse from '../../../shared/sendResponse';
 import { userSearchAndFilter } from './constant';
 import { UserService } from './service';
 
-const createAdmin: RequestHandler = catchAsync(async (req, res) => {
-  const adminData = req.body;
-  const result = await UserService.createAdmin(adminData);
+const createUser: RequestHandler = catchAsync(async (req, res) => {
+  const userData = req.body;
+  const result = await UserService.createUser(userData);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Admin created successfully✅',
+    message: 'User created successfully✅',
     data: result,
   });
 });
@@ -71,7 +71,7 @@ const deleteUser: RequestHandler = catchAsync(async (req, res) => {
 });
 
 export const UserController = {
-  createAdmin,
+  createUser,
   getUser,
   getUsers,
   updateUser,

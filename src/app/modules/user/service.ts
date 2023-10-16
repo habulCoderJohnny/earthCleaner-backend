@@ -7,7 +7,7 @@ import { userSearchableFields } from './constant';
 import { IUser, IUserSearch } from './interface';
 import { User } from './model';
 
-const createAdmin = async (payload: IUser) => {
+const createUser = async (payload: IUser) => {
   // Hash Password
   payload.password = await AuthUtils.hashPass(payload.password);
   payload.role = ENUM_USER_ROLE.ADMIN;
@@ -82,7 +82,7 @@ const deleteUser = async (id: string) => {
 };
 
 export const UserService = {
-  createAdmin,
+  createUser,
   getUsers,
   getUser,
   updateUser,

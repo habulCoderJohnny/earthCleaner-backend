@@ -8,10 +8,10 @@ import { UserValidations } from './validation';
 const router = express.Router();
 
 router.post(
-  '/create-admin',
+  '/create-user',
   auth(ENUM_USER_ROLE.SUPER_ADMIN),
   validateRequest(UserValidations.createAdmin),
-  UserController.createAdmin
+  UserController.createUser
 );
 
 router.get(

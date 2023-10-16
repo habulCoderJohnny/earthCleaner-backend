@@ -2,7 +2,7 @@ import { ObjectId } from 'mongoose';
 import { IFeedback } from './interface';
 import { Feedback } from './model';
 
-const createAdmin = async (authUserId: ObjectId, payload: IFeedback) => {
+const createFeedback = async (authUserId: ObjectId, payload: IFeedback) => {
   payload.user = authUserId;
   const feedback = await Feedback.create(payload);
   return feedback;
@@ -15,6 +15,6 @@ const getFeedbacks = async () => {
 };
 
 export const FeedbackService = {
-  createAdmin,
+  createFeedback,
   getFeedbacks,
 };

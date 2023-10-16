@@ -11,7 +11,7 @@ router.post(
   '/',
   auth(ENUM_USER_ROLE.CUSTOMER),
   validateRequest(FeedbackValidations.createFeedback),
-  FeedbackController.createAdmin
+  FeedbackController.createFeedback
 );
 
 router.get(
