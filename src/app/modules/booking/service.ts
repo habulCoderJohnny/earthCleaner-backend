@@ -26,7 +26,7 @@ const getBookings = async (
   sortCondition[sortBy] = sortOrder;
 
   // Filter Options
-  const { searchTerm } = filtersOptions;
+  const { searchTerm, ...filtersData } = filtersOptions;
 
   const andConditions = [];
   if (searchTerm) {
@@ -36,7 +36,13 @@ const getBookings = async (
       })),
     });
   }
-
+  if (Object.keys(filtersData).length) {
+    andConditions.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
   const whereCondition = Object.keys(andConditions).length
     ? { $and: andConditions }
     : {};
@@ -44,7 +50,8 @@ const getBookings = async (
   const bookings = await Booking.find(whereCondition)
     .sort(sortCondition)
     .skip(skip)
-    .limit(limit);
+    .limit(limit)
+    .populate('orderBy service');
 
   const total = await Booking.find(whereCondition).count();
 

@@ -4,6 +4,7 @@ import { Schema } from 'mongoose';
 export enum ENUM_BOOKING_STATUS {
   PENDING = 'pending',
   ACCEPTED = 'accepted',
+  CANCELED = 'canceled',
   REJECTED = 'rejected',
 }
 
