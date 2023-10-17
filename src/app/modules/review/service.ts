@@ -9,13 +9,19 @@ const createReview = async (authUserId: ObjectId, payload: IReview) => {
 };
 
 const getReviews = async () => {
-  const reviews = await Review.find();
+  const reviews = await Review.find().populate("user");
+
+  return reviews;
+};
+
+const getReviewsByServiceId = async (serviceId: string) => {
+  const reviews = await Review.find({ service: serviceId }).populate("user");
 
   return reviews;
 };
 
 const getReview = async (id: string) => {
-  const review = await Review.findById(id);
+  const review = await Review.findById(id).populate("user");
   return review;
 };
 
@@ -36,6 +42,7 @@ export const ReviewService = {
   createReview,
   getReviews,
   getReview,
+  getReviewsByServiceId,
   updateReview,
   deleteReview,
 };
