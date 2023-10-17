@@ -59,7 +59,9 @@ const getCleaningServices = async (
 };
 
 const getCleaningService = async (id: string) => {
-  const cleaningService = await CleaningService.findById(id);
+  const cleaningService = await CleaningService.findById(id).populate(
+    'category'
+  );
   return cleaningService;
 };
 
