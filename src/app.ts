@@ -15,8 +15,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// base routes  
 app.use('/api/v1', routes);
-
+// health check 
+app.get('/', (req, res) => { //root api
+  res.status(200).json({ message: 'Hello from earthCleaner server!✌️ Server_status : Await' });
+});
 
 //global error handler
 app.use(globalErrorHandler);

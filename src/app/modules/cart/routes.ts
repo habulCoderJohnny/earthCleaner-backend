@@ -11,7 +11,7 @@ router.post(
   '/',
   auth(ENUM_USER_ROLE.CUSTOMER),
   validateRequest(CartValidations.createCart),
-  CartController.createAdmin
+  CartController.createCart
 );
 
 router.get('/', CartController.getCarts);
